@@ -14,7 +14,7 @@ class _LoadingState extends State<Loading> {
   void setWorldTime()async{
     WorldTime wt = WorldTime(location:'Dhaka',flag:'japan.png',url:'asia/dhaka');
     await wt.getTime();
-    //Navigator.pushReplacementNamed(context, '/home',arguments: {'wtObj':wt});
+    Navigator.pushReplacementNamed(context, '/home',arguments: {'wtObj':wt});
   }
 
   @override
