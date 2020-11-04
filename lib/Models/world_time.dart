@@ -7,6 +7,9 @@ class WorldTime{
   String time;
   String flag;
   String url;
+  String dOfWeek;
+  String dOfYear;
+  String timeZone;
 
   WorldTime({this.location,this.flag,this.url});
 
@@ -18,11 +21,14 @@ class WorldTime{
       //print(dateTime);    //for debugging
       DateTime now = DateTime.parse(dateTime.substring(0,dateTime.length-6));
       time = DateFormat.jm().format(now);
+      dOfWeek = timeMap['day_of_week'].toString();
+      dOfYear = timeMap['day_of_year'].toString();
+      timeZone = timeMap['timezone'];
       print('Time at $location is $time');    //for debugging
       //print('now $now');      //for debugging
     } catch (e) {
       print("Error: $e");
-      time="Could not get time info :(";
+      time="Could not Fetch info :(";
     }
   }
 }

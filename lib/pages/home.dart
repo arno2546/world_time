@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:world_time/Models/world_time.dart';
@@ -41,6 +42,22 @@ class _HomeState extends State<Home> {
                   ),
                 ],
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text('Today is ',style: GoogleFonts.ubuntu(fontSize: 22,fontWeight: FontWeight.bold),),
+                  SizedBox(width: 5,),
+                  RotateAnimatedTextKit(
+                      text:['#${wt.dOfWeek} day of the week','#${wt.dOfYear} day of the year'],
+                      textStyle: GoogleFonts.ubuntu(fontSize: 22,fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                      repeatForever: true,
+                      duration: Duration(seconds: 2),
+                    ),
+                ],
+              ),
+              SizedBox(height: 20,),
+              Text('Time Zone : ${wt.timeZone}',style: GoogleFonts.ubuntu()),
             ],
           ), 
         ),

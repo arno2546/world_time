@@ -38,7 +38,7 @@ class _LoadingState extends State<Loading> {
           FadeAnimatedTextKit(text: 
             ['Error 404','Just Kidding ;)','Loading','Imagine Purple Elephants','Sorry for the delay'],
               textStyle: GoogleFonts.lato(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),
-            duration: Duration(milliseconds: 1000),
+            duration: Duration(milliseconds: 800),
             totalRepeatCount: 1,
           ),
         ],
