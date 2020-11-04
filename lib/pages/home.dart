@@ -36,8 +36,8 @@ class _HomeState extends State<Home> {
                   FlatButton.icon(onPressed: (){
                       Navigator.pushNamed(context, '/location');
                     }, 
-                    icon: Icon(Icons.edit_location, color: Colors.black,), 
-                    label: Text('Change Location',style: GoogleFonts.lato(color: Colors.black, fontSize: 18,fontWeight: FontWeight.bold),),                                 
+                    icon: Icon(Icons.edit_location, color: Colors.blue[900],), 
+                    label: Text('Change Location',style: GoogleFonts.lato(color: Colors.blue[900], fontSize: 18,fontWeight: FontWeight.bold),),                                 
                     padding: EdgeInsets.symmetric(vertical: 7,horizontal: 25),
                   ),
                 ],
@@ -57,7 +57,7 @@ class _HomeState extends State<Home> {
                 ],
               ),
               SizedBox(height: 20,),
-              Text('Time Zone : ${wt.timeZone}',style: GoogleFonts.ubuntu()),
+              Text('Time Zone : ${wt.timeZone}',style: GoogleFonts.ubuntu(fontSize: 17)),
             ],
           ), 
         ),
