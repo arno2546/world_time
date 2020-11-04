@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:world_time/Models/world_time.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -23,12 +24,18 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(
-        title: Text("Loading....",style: GoogleFonts.lato(fontSize: 28,fontWeight: FontWeight.bold,)),
-        centerTitle: true,
-        backgroundColor: Colors.blue[900],
+      backgroundColor: Colors.blue[900],
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SpinKitDoubleBounce(
+            color: Colors.white,
+            size: 70,
+          ),
+          SizedBox(height:20),
+          Text('Loading..',style: GoogleFonts.lato(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold,))
+        ],
       ),
-      body: Center(child: Text('Loading.....', style: GoogleFonts.lato(fontSize: 28,fontWeight: FontWeight.bold),)),
     );
   }
 }

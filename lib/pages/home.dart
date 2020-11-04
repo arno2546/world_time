@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(wt.time,style: GoogleFonts.lato(fontSize: 65,fontWeight: FontWeight.bold),),
+              Text(wt.time,style: GoogleFonts.lato(fontSize: 65,fontWeight: FontWeight.bold, color: Colors.black),),
               SizedBox(height:20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
