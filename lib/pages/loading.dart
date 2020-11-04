@@ -14,7 +14,7 @@ class _LoadingState extends State<Loading> {
   void setWorldTime()async{
     WorldTime wt = WorldTime(location:'Dhaka',flag:'japan.png',url:'asia/dhaka');
     await wt.getTime();
-    Navigator.pushReplacementNamed(context, '/home',arguments: {'wtObj':wt});
+    //Navigator.pushReplacementNamed(context, '/home',arguments: {'wtObj':wt});
   }
 
   @override
@@ -29,16 +29,16 @@ class _LoadingState extends State<Loading> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SpinKitDoubleBounce(
+          SpinKitFadingCube(
             color: Colors.white,
             size: 70,
           ),
-          SizedBox(height:20),
+          SizedBox(height:30),
           //Text('Loading...Please Wait!!',style: GoogleFonts.lato(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold,)),
           FadeAnimatedTextKit(text: 
-            ['Error 404','Just Kidding ;)','Loading','Imagine Purple Elephants','Sorry for the delay'],
+            ['Loading','Error 404','Just Kidding ;)','Sorry for the delay'],
               textStyle: GoogleFonts.lato(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),
-            duration: Duration(milliseconds: 800),
+            duration: Duration(milliseconds: 2000),
             totalRepeatCount: 1,
           ),
         ],

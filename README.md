@@ -5,3 +5,7 @@ A Flutter App which shows Current time in different cities of the world.
 ## Home Preview:
 
 ![](home.gif)
+
+## Loading Preview:
+
+![](loading.gif)
