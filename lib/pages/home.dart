@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,6 +12,19 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   WorldTime wt;
+  void updateTIme()async{
+    setState(() {
+      wt.getTime();
+    });
+  }
+
+  @override
+  void initState() {
+    Timer.periodic(Duration(seconds: 20), (Timer t) { 
+      updateTIme();
+    });
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     Map m = ModalRoute.of(context).settings.arguments;
