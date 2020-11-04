@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:world_time/Models/world_time.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -33,7 +34,13 @@ class _LoadingState extends State<Loading> {
             size: 70,
           ),
           SizedBox(height:20),
-          Text('Loading..',style: GoogleFonts.lato(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold,))
+          //Text('Loading...Please Wait!!',style: GoogleFonts.lato(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold,)),
+          FadeAnimatedTextKit(text: 
+            ['Error 404','Just Kidding ;)','Loading','Imagine Purple Elephants','Sorry for the delay'],
+              textStyle: GoogleFonts.lato(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),
+            duration: Duration(milliseconds: 1000),
+            totalRepeatCount: 1,
+          ),
         ],
       ),
     );
