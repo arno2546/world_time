@@ -12,6 +12,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   WorldTime wt;
+  IconData dayFlag;
   void updateTIme()async{
     setState(() {
       wt.getTime();
@@ -29,6 +30,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     Map m = ModalRoute.of(context).settings.arguments;
     wt = m['wtObj'];
+    dayFlag = wt.isDayTime == true ? Icons.wb_sunny : Icons.nights_stay;
     print(wt.location);
     return Scaffold(
       body: SafeArea(
@@ -37,10 +39,13 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(wt.time,style: GoogleFonts.lato(fontSize: 65,fontWeight: FontWeight.bold, color: Colors.black),),
+              Text(wt.date,style: GoogleFonts.ubuntu(fontSize:18, letterSpacing:2),),
               SizedBox(height:20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[                  
+                children: <Widget>[  
+                  Icon(dayFlag), 
+                  SizedBox(width: 10,),               
                   Text(wt.location,style: GoogleFonts.lato(fontSize: 30,fontWeight: FontWeight.bold,letterSpacing: 2),)
               ],
 
