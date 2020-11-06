@@ -17,10 +17,10 @@ class _Loading2State extends State<Loading2> {
   Future<void> getTimeZones() async {
      try {
         Response response = await get('http://worldtimeapi.org/api/timezone');
-        timeZones = jsonDecode(response.body);
+        timeZones = await jsonDecode(response.body);
         print(timeZones);
     } catch (e) {
-      timeZones.add('Could not fetch data');
+      print('Could not fetch timezones');
     }
   }
 
@@ -38,8 +38,23 @@ class _Loading2State extends State<Loading2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Loading....'),
+      backgroundColor: Colors.blue[900],
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SpinKitChasingDots(
+            color: Colors.white,
+            size: 70,
+          ),
+          SizedBox(height:30),
+          //Text('Loading...Please Wait!!',style: GoogleFonts.lato(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold,)),
+          FadeAnimatedTextKit(text: 
+            ['Loading','Error 404','Just Kidding ;)','Sorry for the delay'],
+              textStyle: GoogleFonts.lato(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),
+            duration: Duration(milliseconds: 2000),
+            totalRepeatCount: 1,
+          ),
+        ],
       ),
     );
   }

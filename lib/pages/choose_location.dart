@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:http/http.dart';
-import 'dart:convert';
+import 'package:world_time/Models/world_time.dart';
 
 class ChooseLocation extends StatefulWidget {
   @override
@@ -10,6 +9,11 @@ class ChooseLocation extends StatefulWidget {
 
 class _ChooseLocationState extends State<ChooseLocation> {
 
+  void updateWt(timeZones,index)async{
+    WorldTime wt =  WorldTime(location: timeZones[index].toString().split('/')[1],url:timeZones[index].toString());
+    await wt.getTime();
+    Navigator.pushReplacementNamed(context,'/home',arguments:{'wtObj':wt});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +32,9 @@ class _ChooseLocationState extends State<ChooseLocation> {
           itemBuilder: (context,index){
             return Card(
               child: ListTile(
-                onTap: (){},
+                onTap: (){
+                  updateWt(timeZones, index);
+                },
                 title:Row(
                   children: [
                     Expanded(child: Text(timeZones[index],style: GoogleFonts.lato(fontSize: 18),)),

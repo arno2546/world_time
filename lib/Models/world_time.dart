@@ -18,7 +18,7 @@ class WorldTime{
   Future<void> getTime() async {    
     try {
       Response response = await get('http://worldtimeapi.org/api/timezone/$url');
-      Map timeMap = jsonDecode(response.body);
+      Map timeMap = await jsonDecode(response.body);
       String dateTime = timeMap['datetime'];
       //print(dateTime);    //for debugging
       DateTime now = DateTime.parse(dateTime.substring(0,dateTime.length-6));

@@ -13,10 +13,11 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   WorldTime wt;
+  Map m = {};
   IconData dayFlag;
   void updateTIme()async{
-    setState(() {
-      wt.getTime();
+    setState(() async{
+      await wt.getTime();
     });
   }
 
@@ -28,8 +29,8 @@ class _HomeState extends State<Home> {
     super.initState();
   }
   @override
-  Widget build(BuildContext context) {
-    Map m = ModalRoute.of(context).settings.arguments;
+  Widget build(BuildContext context) {    
+    m = ModalRoute.of(context).settings.arguments;
     wt = m['wtObj'];
     dayFlag = wt.isDayTime == true ? Icons.wb_sunny : Icons.nights_stay;
     print(wt.location);
@@ -40,7 +41,7 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(wt.time,style: GoogleFonts.lato(fontSize: 65,fontWeight: FontWeight.bold, color: Colors.black),),
-              Text(wt.date,style: GoogleFonts.ubuntu(fontSize:18, letterSpacing:2),),
+              //Text(wt.date,style: GoogleFonts.ubuntu(fontSize:18, letterSpacing:2),),
               SizedBox(height:20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -54,8 +55,8 @@ class _HomeState extends State<Home> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  FlatButton.icon(onPressed: (){
-                      Navigator.pushNamed(context, '/2');
+                  FlatButton.icon(onPressed: ()async{
+                      Navigator.pushReplacementNamed(context, '/2');
                     }, 
                     icon: Icon(Icons.edit_location, color: Colors.blue[900],), 
                     label: Text('Change Location',style: GoogleFonts.lato(color: Colors.blue[900], fontSize: 18,fontWeight: FontWeight.bold),),                                 
