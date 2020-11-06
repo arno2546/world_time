@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:world_time/Models/world_time.dart';
 
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -54,7 +55,7 @@ class _HomeState extends State<Home> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   FlatButton.icon(onPressed: (){
-                      Navigator.pushNamed(context, '/location');
+                      Navigator.pushNamed(context, '/2');
                     }, 
                     icon: Icon(Icons.edit_location, color: Colors.blue[900],), 
                     label: Text('Change Location',style: GoogleFonts.lato(color: Colors.blue[900], fontSize: 18,fontWeight: FontWeight.bold),),                                 
