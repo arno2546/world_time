@@ -23,7 +23,7 @@ class WorldTime{
       //print(dateTime);    //for debugging
       DateTime now = DateTime.parse(dateTime.substring(0,dateTime.length-6));
       date = now.toString().split(" ")[0];
-      isDayTime = now.hour > 6 && now.hour < 18 ? true : false;
+      isDayTime = now.hour >= 6 && now.hour < 18 ? true : false;
       time = DateFormat.jm().format(now);
       dOfWeek = timeMap['day_of_week'].toString();
       dOfYear = timeMap['day_of_year'].toString();
