@@ -10,9 +10,15 @@ class ChooseLocation extends StatefulWidget {
 class _ChooseLocationState extends State<ChooseLocation> {
 
   void updateWt(timeZones,index)async{
-    WorldTime wt =  WorldTime(location: timeZones[index].toString().split('/')[1],url:timeZones[index].toString());
-    await wt.getTime();
-    Navigator.pushReplacementNamed(context,'/home',arguments:{'wtObj':wt});
+    try{
+      WorldTime wt =  WorldTime(location: timeZones[index].toString().split('/')[1],url:timeZones[index].toString());
+      await wt.getTime();
+      Navigator.pushReplacementNamed(context,'/home',arguments:{'wtObj':wt});
+    }catch(e){
+      print('Error : choose_location : $e');
+      updateWt(timeZones,index);
+    }
+    
   }
 
   @override

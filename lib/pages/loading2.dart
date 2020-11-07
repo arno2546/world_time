@@ -20,7 +20,8 @@ class _Loading2State extends State<Loading2> {
         timeZones = await jsonDecode(response.body);
         print(timeZones);
     } catch (e) {
-      print('Could not fetch timezones');
+      print('timezones fetch failed');
+      getTimeZones();
     }
   }
 
