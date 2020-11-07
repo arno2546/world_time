@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(wt.time,style: GoogleFonts.lato(fontSize: 65,fontWeight: FontWeight.bold, color: Colors.black),),
-              //Text(wt.date,style: GoogleFonts.ubuntu(fontSize:18, letterSpacing:2),),
+              Text(wt.date,style: GoogleFonts.ubuntu(fontSize:18, letterSpacing:2),),
               SizedBox(height:20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
