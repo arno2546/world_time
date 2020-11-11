@@ -33,7 +33,7 @@ class WorldTime{
     } catch (e) {
       print("Error: $e");
       time="Could not Fetch info :(";
-      getTime();
+      await getTime();
     }
   }
 }
